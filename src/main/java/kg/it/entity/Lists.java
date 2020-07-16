@@ -24,15 +24,24 @@ public class Lists {
    @JoinColumn(name = "order_id",nullable = false )
    private OrderBlog orderBlog;
    @ManyToOne
+   @JoinColumn(name = "cafe_id")
+   private Cafe cafe;
+   @ManyToOne
    @JoinColumn(name = "deliveryman_id",nullable = false )
    private DeliveryMans deliveryMan;
    @Column(name = "time" ,nullable = false )
-   private LocalDateTime time;
+   private LocalDateTime timeofdelivery;
 
-   public Lists(Customers customer,OrderBlog orderBlog,DeliveryMans deliveryMan,LocalDateTime time) {
+
+   @PrePersist
+   public void Create(){
+      this.timeofdelivery=LocalDateTime.now();
+   }
+
+   public Lists(Customers customer,OrderBlog orderBlog,Cafe cafe,DeliveryMans deliveryMan) {
       this.customer=customer;
+      this.cafe=cafe;
       this.orderBlog=orderBlog;
       this.deliveryMan=deliveryMan;
-      this.time=time;
    }
 }

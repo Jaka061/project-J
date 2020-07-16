@@ -33,7 +33,7 @@ public class DeliveryMansController {
         return deliveryMansService.update(deliveryMans);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/id/{id}")
     public DeliveryMans deleteById(@RequestParam(name = "id") Long id){
         return  deliveryMansService.deleteById(id);
     }

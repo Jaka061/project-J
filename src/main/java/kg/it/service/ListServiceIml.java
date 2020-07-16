@@ -41,4 +41,19 @@ public class ListServiceIml implements ListService {
     public List<Lists> getAll() {
         return listRepository.findAll();
     }
+
+    @Override
+    public List<Lists> getAllByCafe(String cafe) {
+        return listRepository.findAllByCafe_NameContainingIgnoringCase(cafe);
+    }
+
+    @Override
+    public List<Lists> getAllByDeliveryMan(String deliveryman) {
+        return listRepository.findAllByDeliveryMan_NameContainingIgnoringCase(deliveryman);
+    }
+
+    @Override
+    public List<Lists> getAllByCustomers(String customers) {
+    return listRepository.findAllByCustomer_LoginContainingIgnoringCase(customers);
+    }
 }

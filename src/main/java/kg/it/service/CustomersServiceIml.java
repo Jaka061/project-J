@@ -12,9 +12,10 @@ import java.util.List;
 public class CustomersServiceIml implements CustomersService {
     @Autowired
     private CustomersRepository customersRepository;
-
 //    @Autowired
-//    private PasswordEncoder passwordEncoder;
+//    private MailService mailService;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public List<Customers> getAll() {
@@ -28,8 +29,8 @@ public class CustomersServiceIml implements CustomersService {
 
     @Override
     public Customers create(Customers customers) {
-//        String encodePassWord = passwordEncoder.encode(customers.getPassword());
-//        customers.setPassword(encodePassWord);
+        String encodePassWord = passwordEncoder.encode(customers.getPassword());
+        customers.setPassword(encodePassWord);
         return customersRepository.save(customers);
     }
     @Override

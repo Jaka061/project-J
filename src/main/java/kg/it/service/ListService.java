@@ -10,4 +10,7 @@ public interface ListService {
     Lists getById(Long id);
     Lists deleteById(Long id);
     List<Lists> getAll();
+    List<Lists> getAllByCafe(String cafe);
+    List<Lists> getAllByDeliveryMan(String deliveryman);
+    List<Lists> getAllByCustomers(String customers);
 }

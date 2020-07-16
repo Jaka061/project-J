@@ -1,5 +1,6 @@
 package kg.it.controler;
 
+import kg.it.entity.Cafe;
 import kg.it.entity.Foods;
 import kg.it.service.FoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ public class FoodController {
 
     @GetMapping
     public List<Foods> getAll(){
+
         return foodsService.getAll();
     }
 
@@ -34,15 +36,14 @@ public class FoodController {
     }
 
     @GetMapping("/C/{cafeName}")
-    public List<Foods> getAllByCafeName(@PathVariable String cafeName){
-        return foodsService.getAllByCafeName(cafeName);
+    public List<Foods> getAllByCafeName(@PathVariable String cafe){
+        return foodsService.getAllByCafe(cafe);
     }
 
     @GetMapping("/S/{structure}")
     public List<Foods> getAllByStructure(@PathVariable String structure){
         return foodsService.getAllByStructure(structure);
     }
-
     @PostMapping
     public Foods create(@RequestBody Foods foods){
         return foodsService.create(foods);

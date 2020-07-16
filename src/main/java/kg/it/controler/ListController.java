@@ -23,6 +23,18 @@ public class ListController {
         return listService.getById(id);
     }
 
+    @GetMapping("/C/{Cafe}")
+    public List<Lists> getAllByCafeName(@PathVariable  String cafe){
+        return listService.getAllByCafe(cafe);
+    }
+    @GetMapping("/D/{deliveryman}")
+    public List<Lists> getAllByDeliveryMan(String deliveryman){
+        return listService.getAllByDeliveryMan(deliveryman);
+    }
+    @GetMapping("/Cs/{customer}")
+    public List<Lists> getAllByCustomers(String customer){
+        return listService.getAllByCustomers(customer);
+    }
     @PostMapping
     public Lists create(@RequestBody Lists lists){
         return listService.create(lists);
@@ -37,4 +49,6 @@ public class ListController {
     public Lists deleteById(@RequestParam(name = "id") Long id){
         return  listService.deleteById(id);
     }
+
+
 }

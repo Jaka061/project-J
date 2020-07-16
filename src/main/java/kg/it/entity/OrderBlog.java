@@ -20,18 +20,18 @@ public class OrderBlog {
     @Column(name = "login")
     private  String login;
     @Column( name = "number")
-    private  Integer number;
+    private  String number;
     @ManyToOne
     @JoinColumn(name = "address_id")
     private Address address;
     @Column(name = "time_of_delivery")
-    private LocalTime timeOfDelivery;
+    private String timeOfDelivery;
     @Column(name = "payWay")
     private String payWay;
     @Column(name = "payment")
     private Integer payment;
 
-    public OrderBlog(String login,Integer number,Address address,LocalTime timeOfDelivery,String payWay,Integer payment) {
+    public OrderBlog(String login ,String number,Address address,String timeOfDelivery,String payWay,Integer payment) {
         this.login=login;
         this.number=number;
         this.address=address;

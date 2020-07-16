@@ -13,8 +13,8 @@ public class DeliveryMansServiceIml implements  DeliveryMansService {
     @Autowired
     private DeliveryManRepository deliveryManRepository;
 
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
 
     @Override
@@ -24,8 +24,8 @@ public class DeliveryMansServiceIml implements  DeliveryMansService {
 
     @Override
     public DeliveryMans create(DeliveryMans deliveryMans) {
-//        String encodePassWord = passwordEncoder.encode(deliveryMans.getPassword());
-//        deliveryMans.setPassword(encodePassWord);
+        String encodePassWord = passwordEncoder.encode(deliveryMans.getPassword());
+        deliveryMans.setPassword(encodePassWord);
         return deliveryManRepository.save(deliveryMans);
     }
 

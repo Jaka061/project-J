@@ -6,10 +6,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
 @Repository
 public interface FoodRepository extends JpaRepository<Foods ,Long> {
      List<Foods> findAllByNameContainingIgnoringCase(String name);
-     List<Foods> findAllByCafeNameContainingIgnoringCase(String cafeName);
+     List<Foods> findAllByCafeNameContainingIgnoringCase(String cafe);
      List<Foods> findAllByTypeContainingIgnoringCase(String type);
      List<Foods> findAllByStructureContainingIgnoringCase(String structure);
 

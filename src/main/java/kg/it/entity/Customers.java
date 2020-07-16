@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="customers")
@@ -21,11 +22,18 @@ public class Customers {
     @Column(name= "password", nullable = false )
     private String password;
     @Column(name = "phone_num",nullable = false )
-    private Integer phoneNum ;
+    private String phoneNum ;
     @Column(name = "balance",nullable = false )
     private Integer balance;
+    @Column(name = "timeOfRegister")
+    private LocalDateTime timeOfRegister;
 
-    public Customers(String login,String password,Integer phoneNum,Integer balance) {
+    @PrePersist
+    public void Create(){
+        this.timeOfRegister=LocalDateTime.now();
+    }
+
+    public Customers(String login,String password,String phoneNum,Integer balance) {
         this.login= login;
         this.password= password;
         this.phoneNum= phoneNum;

@@ -51,8 +51,8 @@ public class FoodsServiceIml implements FoodsService{
     }
 
     @Override
-    public List<Foods> getAllByCafeName(String cafeName) {
-        return foodRepository.findAllByCafeNameContainingIgnoringCase(cafeName);
+    public List<Foods> getAllByCafe(String cafe) {
+        return foodRepository.findAllByCafeNameContainingIgnoringCase(cafe);
     }
 
     @Override

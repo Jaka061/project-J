@@ -9,5 +9,5 @@ import java.awt.*;
 
 @Repository
 public interface CustomersRepository extends JpaRepository<Customers,Long> {
-    //Customers makePayment(Long id, Double sum);
+    Customers findByLogin(String login);
 }

@@ -13,6 +13,6 @@ public interface FoodsService {
 
     List<Foods> getAllByName(String name);
     List<Foods> getAllByType(String type);
-    List<Foods> getAllByCafeName(String cafeName);
+    List<Foods> getAllByCafe(String cafe);
     List<Foods> getAllByStructure(String structure);
 }
